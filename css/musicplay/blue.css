@@ -1,0 +1,468 @@
+div.jp-audio,
+div.jp-audio-stream,
+div.jp-video {
+
+	/* 编辑字体大小以抵消继承的字体大小。
+	 * Eg. 1.25em = 1 / 0.8em
+	 */
+
+	font-size:1.25em; /* 1.25em for testing in site pages */ /* 没有父CSS可以影响演示中的大小zip */
+
+	font-family:Verdana, Arial, sans-serif;
+	line-height:1.6;
+	color: #666;
+	border:1px solid #009be3;
+	background-color:#eee;
+}
+div.jp-audio {
+	width:1534px;
+}
+div.jp-audio-stream {
+	width:182px;
+}
+div.jp-video-270p {
+	width:800px;
+}
+div.jp-video-360p {
+	width:640px;
+}
+div.jp-video-full {
+	/* Rules for IE6 (full-screen) */
+	width:480px;
+	height:270px;
+	/* Rules for IE7 (full-screen)  */
+	position:static !important; position:relative
+}
+
+div.jp-video-full div div {
+	z-index:1000;
+}
+
+div.jp-video-full div.jp-jplayer {
+	top: 0;
+	left: 0;
+	position: fixed !important; position: relative; /* Rules for IE6 (full-screen) */
+	overflow: hidden;
+}
+
+div.jp-video-full div.jp-gui {
+	position: fixed !important; position: static; /* Rules for IE6 (full-screen) */
+	top: 0;
+	left: 0;
+	width:100%;
+	height:100%;
+	z-index:1001; /* 1 layer above the others. */
+}
+
+div.jp-video-full div.jp-interface {
+	position: absolute !important; position: relative; /* Rules for IE6 (full-screen) */
+	bottom: 0;
+	left: 0;
+}
+
+div.jp-interface {
+	position: relative;
+	background-color:#eee;
+	width:100%;
+}
+
+div.jp-audio div.jp-type-single div.jp-interface {
+	height:80px;
+}
+div.jp-audio div.jp-type-playlist div.jp-interface {
+	height:80px;
+}
+
+div.jp-audio-stream div.jp-type-single div.jp-interface {
+	height:80px;
+}
+
+div.jp-video div.jp-interface {
+	border-top:1px solid #009be3;
+}
+
+/* 组控件 */
+
+div.jp-controls-holder {
+	clear: both;
+	width:440px;
+	margin:0 auto;
+	position: relative;
+	overflow:hidden;
+	top:-8px; /* 这个负值取决于JP CurrTimeTimes和JP持续时间中文本的大小。 */
+}
+
+div.jp-interface ul.jp-controls {
+	list-style-type:none;
+	margin:0;
+	padding: 0;
+	overflow:hidden;
+}
+
+div.jp-audio ul.jp-controls {
+	width: 380px;
+	padding:20px 20px 0 20px;
+}
+
+div.jp-audio-stream ul.jp-controls {
+	width: 142px;
+	padding:20px 20px 0 20px;
+}
+
+div.jp-video div.jp-type-single ul.jp-controls {
+	width: 78px;
+	margin-left: 200px;
+}
+
+div.jp-video div.jp-type-playlist ul.jp-controls {
+	width: 134px;
+	margin-left: 172px;
+}
+div.jp-video ul.jp-controls,
+div.jp-interface ul.jp-controls li {
+	display:inline;
+	float: left;
+}
+
+div.jp-interface ul.jp-controls a {
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+}
+a.jp-play,
+a.jp-pause {
+	width:40px;
+	height:40px;
+}
+
+a.jp-play {
+	background: url("../../images/musicplay/play2.png") no-repeat;
+	margin-top:6px;
+}
+a.jp-play:hover {
+	background: url("../../images/musicplay/play.png") no-repeat;
+}
+a.jp-pause {
+	background: url("../../images/musicplay/stop.png") no-repeat;
+	margin-top:6px;
+	display: none;
+}
+a.jp-pause:hover {
+	background: url("../../images/musicplay/stop2.png") no-repeat;
+}
+
+a.jp-stop, a.jp-previous, a.jp-next {
+	width:34px;
+	height:34px;
+}
+
+a.jp-stop {
+	background: url("../../images/musicplay/stop3.png") no-repeat;
+	margin-top:6px;
+}
+
+a.jp-stop:hover {
+	background: url("../../images/musicplay/stop4.png") no-repeat;
+}
+
+
+
+div.jp-progress {
+	overflow:hidden;
+	background-color: #ddd;
+}
+div.jp-audio div.jp-progress {
+	position: absolute;
+	top:32px;
+	height:15px;
+}
+div.jp-audio div.jp-type-single div.jp-progress {
+	top:40px;
+	left:110px;
+	width:1400px;/*时间轴长短*/
+	height:3px;
+}
+div.jp-audio div.jp-type-playlist div.jp-progress {
+	left:166px;
+	width:130px;
+}
+div.jp-video div.jp-progress {
+	top:0px;
+	left:0px;
+	width:100%;
+	height:10px;
+}
+div.jp-seek-bar {
+	background: url("jplayer.blue.monday.jpg") 0 -202px repeat-x;
+	width:0px;
+	height:100%;
+	cursor: pointer;
+}
+div.jp-play-bar {
+	background: url("jplayer.blue.monday.jpg") 0 -218px repeat-x ;
+	width:0px;
+	height:100%;
+}
+
+/* The seeking class is added/removed inside jPlayer */
+div.jp-seeking-bg {
+	background: url("jplayer.blue.monday.seeking.gif");
+}
+
+/* @end */
+
+
+/* @end */
+
+/* @group current time and duration */
+
+div.jp-audio div.jp-time-holder {
+	position:absolute;
+	top:50px;
+}
+div.jp-audio div.jp-type-single div.jp-time-holder {
+	left:110px;
+	width:1400px;
+}
+div.jp-audio div.jp-type-playlist div.jp-time-holder {
+	left:166px;
+	width:130px;
+}
+
+div.jp-current-time,
+div.jp-duration {
+	width:60px;
+	font-size:.64em;
+	font-style:oblique;
+}
+div.jp-current-time {
+	float: left;
+	display:inline;
+}
+div.jp-duration {
+	float: right;
+	display:inline;
+	text-align: right;
+}
+
+div.jp-video div.jp-current-time {
+	margin-left:20px;
+}
+div.jp-video div.jp-duration {
+	margin-right:20px;
+}
+
+/* @end */
+
+/* @group playlist */
+
+div.jp-title {
+	font-weight:bold;
+	text-align:center;
+}
+
+div.jp-title,
+div.jp-playlist {
+	width:100%;
+	background-color:#ABCDEF;
+	border-top:1px solid #009be3;
+}
+div.jp-type-single div.jp-title,
+div.jp-type-playlist div.jp-title,
+div.jp-type-single div.jp-playlist {
+	border-top:none;
+}
+div.jp-title ul,
+div.jp-playlist ul {
+	list-style-type:none;
+	margin:0;
+	padding:0 20px;
+	font-size:.72em;
+}
+
+div.jp-title li {
+	padding:5px 0;
+	font-weight:bold;
+}
+div.jp-playlist li {
+	padding:5px 0 4px 20px;
+	border-bottom:1px solid #eee;
+}
+
+div.jp-playlist li div {
+	display:inline;
+}
+
+/* Note that the first-child (IE6) and last-child (IE6/7/8) selectors do not work on IE */
+
+div.jp-type-playlist div.jp-playlist li:last-child {
+	padding:5px 0 5px 20px;
+	border-bottom:none;
+}
+div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
+	list-style-type:square;
+	list-style-position:inside;
+	padding-left:7px;
+}
+div.jp-type-playlist div.jp-playlist a {
+	color: #333;
+	text-decoration: none;
+}
+div.jp-type-playlist div.jp-playlist a:hover {
+	color:#0d88c1;
+}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-current {
+	color:#0d88c1;
+}
+
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove {
+	float:right;
+	display:inline;
+	text-align:right;
+	margin-right:10px;
+	font-weight:bold;
+	color:#666;
+}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove:hover {
+	color:#0d88c1;
+}
+div.jp-type-playlist div.jp-playlist span.jp-free-media {
+	float:right;
+	display:inline;
+	text-align:right;
+	margin-right:10px;
+}
+div.jp-type-playlist div.jp-playlist span.jp-free-media a{
+	color:#666;
+}
+div.jp-type-playlist div.jp-playlist span.jp-free-media a:hover{
+	color:#0d88c1;
+}
+span.jp-artist {
+	font-size:.8em;
+	color:#666;
+}
+
+/* @end */
+
+div.jp-video-play {
+	width:100%;
+	overflow:hidden; /* Important for nested negative margins to work in modern browsers */
+	cursor:pointer;
+	background-color:rgba(0,0,0,0); /* Makes IE9 work with the active area over the whole video area. IE6/7/8 only have the button as active area. */
+}
+div.jp-video-270p div.jp-video-play {
+	margin-top:-270px;
+	height:270px;
+}
+div.jp-video-360p div.jp-video-play {
+	margin-top:-360px;
+	height:360px;
+}
+div.jp-video-full div.jp-video-play {
+	height:100%;
+}
+a.jp-video-play-icon {
+	position:relative;
+	display:block;
+	width: 112px;
+	height: 100px;
+
+	margin-left:-56px;
+	margin-top:-50px;
+	left:50%;
+	top:50%;
+
+	background: url("jplayer.blue.monday.video.play.png") 0 0 no-repeat;
+	text-indent:-9999px;
+}
+div.jp-video-play:hover a.jp-video-play-icon {
+	background: url("jplayer.blue.monday.video.play.png") 0 -100px no-repeat;
+}
+
+
+
+
+
+div.jp-jplayer audio,
+div.jp-jplayer {
+	width:0px;
+	height:0px;
+}
+
+div.jp-jplayer {
+	background-color: #000000;
+}
+
+
+
+
+
+/* @group TOGGLES */
+
+/* The audio toggles are nested inside jp-time-holder */
+
+ul.jp-toggles {
+	list-style-type:none;
+	padding:0;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+div.jp-audio .jp-type-single ul.jp-toggles {
+	width:25px;
+}
+div.jp-audio .jp-type-playlist ul.jp-toggles {
+	width:55px;
+	margin: 0;
+	position: absolute;
+	left: 325px;
+	top: 50px;
+}
+
+div.jp-video ul.jp-toggles {
+	margin-top:10px;
+	width:100px;
+}
+
+ul.jp-toggles li {
+	display:block;
+	float:right;
+}
+
+ul.jp-toggles li a {
+	display:block;
+	width:25px;
+	height:18px;
+	text-indent:-9999px;
+	line-height:100%; /* need this for IE6 */
+}
+
+
+
+
+/* @end */
+
+/* @group NO SOLUTION error feedback */
+
+.jp-no-solution {
+	padding:5px;
+	font-size:.8em;
+	background-color:#eee;
+	border:2px solid #009be3;
+	color:#000;
+	display:none;
+}
+
+.jp-no-solution a {
+	color:#000;
+}
+
+.jp-no-solution span {
+	font-size:1em;
+	display:block;
+	text-align:center;
+	font-weight:bold;
+}
+
+/* @end */

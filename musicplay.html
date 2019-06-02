@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>播放音乐</title>
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.4">
+<meta name="MobileOptimized" content="240">
+
+<link href="css/musicplay/blue.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/musicplay/jquery.js"></script>
+<script type="text/javascript" src="js/musicplay/jquery.jplayer.js"></script>
+<script type="text/javascript" src="js/musicplay/lrc.js"></script>
+
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	outline:none;
+}
+ul, ol, dl {
+	list-style: none;
+}
+
+.music_box{width:1500px;}
+.content {width: 1515px;height:650px;overflow:hidden;padding:10px;background:url(images/musicplay/jj.jpg);background-size:cover;opacity:0.7;}
+#lrc_list{margin:30px auto;color:black;}
+#lrc_list li{font:normal 18px/2.1 'microsoft yahei';text-align:center;}
+#lrc_list li.hover {font-size:30px;color:#00eeee;font-weight:bold;}
+</style>
+
+<script>
+//<![CDATA[
+$(document).ready(function(){
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				mp3:"那些你很冒险的梦.mp3" //mp3的播放地址
+			});
+		},
+		timeupdate: function(event) {
+			if(event.jPlayer.status.currentTime==0){
+				time = "";
+			}else {
+				time = event.jPlayer.status.currentTime;
+			}
+		},
+		play: function(event) {
+			//点击开始方法调用lrc。start歌词方法 返回时间time
+			$.lrc.start($('#lrc_content').val(), function() {
+				return time;
+			});
+		},
+		ended:function(event){
+			$("#lrc_list").removeAttr("style").html("<li>歌曲播放完毕！</li>");
+		},
+		swfPath: "/js",  		//存放jplayer.swf的决定路径
+		solution:"html, flash", //支持的页面
+		supplied: "mp3",		//支持的音频的格式
+		wmode: "window"
+	});
+});
+//]]>
+</script>
+</head>
+<body>
+<textarea id="lrc_content" name="textfield" cols="70" rows="100" style="display:none;">
+[00:03.00]那些你很冒险的梦
+[00:06.00]演唱：林俊杰
+[00:09.00]作词：王雅君
+[00:12.00]作曲：林俊杰
+[00:14.00]当两颗心开始震动
+[00:21.00]当你瞳孔学会闪躲
+[00:28.00]当爱慢慢被遮住只剩下黑
+[00:35.00]距离像影子被拉拖
+[00:42.00]当爱的故事剩听说
+[00:49.00]我找不到你单纯的面孔
+[00:56.00]当生命每分每秒都为你转动
+[01:03.00]心多执著就加倍心痛
+[01:09.00]那些你很冒险的梦 我陪你去疯
+[01:17.00]折纸飞机 碰到雨天 终究会坠落
+[01:24.00]太残忍的话我直说 因为爱很重
+[01:31.00]你却不想懂 只往反方向走
+[01:40.00]……
+[01:49.00]当爱的故事剩听说
+[01:56.00]我找不到你单纯的面孔
+[02:03.00]当生命每分每秒都为你转动
+[02:10.00]心有多执著就加倍心痛
+[02:17.00]那些你很冒险的梦 我陪你去疯
+[02:25.00]折纸飞机 碰到雨天 终究会坠落
+[02:30.00]太残忍的话我直说 因为爱很重
+[02:38.00]你却不想懂 只往反方向走
+[02:46.00]我不想放手 你松开的左手
+[02:49.00]你爱的放纵 我白不回天空
+[02:52.00]我输了累了但你再也 不回头
+[03:01.00]那些你很冒险的梦 我陪你去疯
+[03:10.00]折纸飞机 碰到雨天 终究会坠落
+[03:16.00]太残忍的话我直说 因为爱很重
+[03:24.00]你却不想懂 只往反方向走
+[03:31.00]你真的不懂 我的爱已降落 
+[03:42.00]……
+
+</textarea>
+<div class="music_box">
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio">
+  <div class="jp-type-single">
+    <div class="jp-gui jp-interface">
+      <ul class="jp-controls">
+        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+        <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+      </ul>
+      <div class="jp-progress">
+        <div class="jp-seek-bar">
+          <div class="jp-play-bar"></div>
+        </div>
+      </div>
+
+      <div class="jp-time-holder">
+        <div class="jp-current-time"></div>
+        <div class="jp-duration"></div>
+      </div>
+    </div>
+
+    <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+  </div>
+</div>
+<div class="content">
+    <ul id="lrc_list">
+    	<li>点击开始播放……</li>
+    </ul>
+</div>
+</div>
+</body>
+</html>

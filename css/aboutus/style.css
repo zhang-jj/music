@@ -1,0 +1,202 @@
+body {
+	font-size: 18px;
+	font-family: "microsoft yahei";
+}
+a:hover {
+	text-decoration: none;
+}
+.row{
+	margin-right: 0;
+	margin-left: 0;
+}
+.wrap {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.navbar-default {
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 0;
+	height: 100px;
+	line-height: 100px;
+}
+.navbar-brand {
+	height: 100px;
+	padding: 25px 15px;
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+	color: #cf0f32;
+	background: none;
+}
+.navbar-default .navbar-nav>li>a:hover{
+	color: #FF00FF;
+} 
+.navbar-nav>li>a {
+	line-height: 80px;
+}
+.navbar-default .navbar-nav>li>a {
+	color: #000;
+}
+.nav>li>a {
+	padding: 10px 12px;
+	display: inline-block;
+}
+
+.navbar-default .navbar-nav>li.lang {
+	margin-left: 20px;
+}
+
+.navbar-default .navbar-nav>li.lang>a {
+	color: #cccccc;
+}
+
+.navbar-default .navbar-nav>li.lang>a.active {
+	color: #000000;
+}
+
+.navbar-right {
+	margin-right: -10px;
+}
+
+
+/*联系我们*/
+.contract{
+	margin: 50px auto;
+}
+.contract>.title{
+	text-align: center;
+	color: #262b2e;
+	font-size: 36px;
+	margin: 0px auto;
+	padding-bottom: 20px;
+}
+.contractlist .juzhong{
+	margin: 0 auto;
+	width: 320px;
+}
+.contractlist .juzhong>div{
+	padding: 5px 0;
+}
+.contractlist span{
+	text-align: left;
+	color: #999;
+}
+.contractlist .imgDiv{
+	width: 22px;
+	text-align: center;
+	display: inline-block;
+	margin-right: 10px;
+}
+.contract .map{
+	margin-top: 50px;
+	position: relative;
+	text-align: center;
+}
+.contract .map>img{
+	width: 100%;
+}
+.map .dingwei{
+	position: absolute;
+	z-index: 1; 
+	/*right: 239px;
+    top: 181px;*/
+    margin-left: 81%;
+    margin-top: -32.2%;
+    cursor: pointer;
+}
+.map .addr-name{
+	display: none;
+	position: absolute;
+	z-index: 1; 
+    margin-left: 85%;
+    margin-top: -33%;
+   	width: 100px;
+   	height: 40px;
+   	line-height: 30px;
+    color: #F43DF1;
+    font-size: 18px;
+    background: url(../../images/aboutus/addr-bg.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+.map .en_addr-name{
+   	width: 220px;
+    margin-left: 73%;
+}
+/*关于公司*/
+.map .dingwei1{
+	position: absolute;
+	z-index: 1; 
+    margin-left: 80.5%;
+    margin-top: -31.2%;
+    cursor: pointer;
+    width: 30px;
+    height: 40px;
+    /*border: 1px solid #A94442;*/
+}
+.map .dingwei2{
+	position: absolute;
+	z-index: 1; 
+    margin-left: 75.6%;
+    margin-top: -26.3%;
+    cursor: pointer;
+    width: 30px;
+    height: 40px;
+/*    border: 1px solid #A94442;*/
+}
+.map .addr-name1{
+	display: none;
+	position: absolute;
+	z-index: 1; 
+    margin-left: 74.5%;
+    margin-top: -34.5%;
+   	width: 171px;
+   	height: 39px;
+   	line-height: 32px;
+    color: #FFFFFF;
+    font-size: 14px;
+    background: url(../img/addr-bg.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+.map .addr-name2{
+	display: none;
+	position: absolute;
+	z-index: 1; 
+    margin-left: 69.5%;
+    margin-top: -29.5%;
+   	width: 171px;
+   	height: 39px;
+   	line-height: 32px;
+    color: #FFFFFF;
+    font-size: 14px;
+    background: url(../img/addr-bg.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+.map .en_addr-name1{
+	/*display: block;*/
+    margin-left: 72.5%;
+    margin-top: -34.5%;
+    width: 220px;
+}
+.map .en_addr-name2{
+	/*display: block;*/
+    margin-left: 67.5%;
+    margin-top: -29.5%;
+   	width: 220px;
+}
+/*底部*/
+
+.footer {
+	background: #bababa;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 40px 0;
+}
+
+.footer img {
+	margin: 30px auto;
+	display: block;
+}
+
+
+
